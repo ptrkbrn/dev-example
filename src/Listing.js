@@ -2,13 +2,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from './Button';
+import './Listing.css';
 
 function Listing(props) {
   const { title, image } = props;
   return (
-    <div>
+    <div className="Listing">
       <img src={image} alt={title} />
-      <h3>{title}</h3>
+      <p>{title}</p>
       <Button />
     </div>
   );

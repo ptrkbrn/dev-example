@@ -1,5 +1,11 @@
 a {
     color: white;
     background-color: #69A8E8;
-    
+    text-decoration: none;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 258px;
+    height: 33px;
 }

@@ -15,8 +15,11 @@ function App() {
   }, []);
   console.log(`listings: ${listings}`);
   return (
-    <div>
-      {listings.map((listing) => <Listing title={listing.title} image={listing.images[0].src} />)}
+    <div className="App">
+      <h1>Rigging Kits</h1>
+      <div className="container">
+        {listings.map((listing) => <Listing title={listing.title} image={listing.images[0].src} />)}
+      </div>
     </div>
   );
 }
