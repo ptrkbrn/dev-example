@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable react/react-in-jsx-scope */
+import { useEffect, useState } from 'react';
+import Listing from './Listing';
 import './App.css';
 
 function App() {
+  const [listings, setListings] = useState([]);
+  useEffect(() => {
+    fetch('https://gemlux.com/collections/rigging-kits/products.json')
+      .then((res) => res.json())
+      .then((data) => {
+        setListings(data.products.slice(0, 3));
+      });
+  }, []);
+  console.log(`listings: ${listings}`);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {listings.map((listing) => <Listing title={listing.title} image={listing.images[0].src} />)}
     </div>
   );
 }
